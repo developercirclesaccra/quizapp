@@ -23,6 +23,10 @@ body {
   text-align: center;
 }
 
+.content-p {
+  color: #fff;
+}
+
 /* Float three columns side by side */
 .column {
   float: left;
@@ -57,4 +61,5 @@ body {
   padding: 16px;
   text-align: center;
   background-color: #f1f1f1;
+  color: #2C3E50;
 }
