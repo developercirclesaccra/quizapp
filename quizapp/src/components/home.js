@@ -44,6 +44,12 @@ export default Home => {
               <h2>JavaScript</h2>
             </div>
           </div>
+          <div className="column">
+            <div className="card">
+              <p><i className='fa fa-code fa-2x'></i></p>
+              <h2>Python</h2>
+            </div>
+          </div>
         </div>
       </div>
     </div>
