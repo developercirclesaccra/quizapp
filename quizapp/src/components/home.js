@@ -1,11 +1,11 @@
 import React from 'react';
 
+import Header from './header';
+
 export default Home => {
   return (
     <div>
-      <div className='header'>
-        <img src='https://i.postimg.cc/3rBgrrNY/Dev-Quiz-2.png' width='150px' alt='DevC Accra Logo' />
-      </div>
+      <Header />
       <div className='content'>
         <h1 className='content-p'>Choose a topic to test your knowledge</h1>
         <div className="row">
