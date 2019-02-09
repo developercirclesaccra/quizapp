@@ -23,3 +23,5 @@ As soon as your PR is sent, the card will automatically move to **In progress** 
 
 ## Note
 If you have any challenges including access to DevC Accra Github organization, mention John Otu or Oliver Mensah in a [Developer Circles Facebook group](https://web.facebook.com/groups/DevCAccra) post and we will help. 
+
+App is [deployed on Netlify](https://devc-quizapp.netlify.com/)
