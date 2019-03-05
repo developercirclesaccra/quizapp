@@ -1,11 +1,8 @@
 import React from 'react';
 
-import Header from './header';
-
 export default Home => {
   return (
     <div>
-      <Header />
       <div className='content'>
         <h1 className='content-p'>Choose a topic to test your knowledge</h1>
         <div className="row">
