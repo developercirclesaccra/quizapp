@@ -1,16 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import 'font-awesome/css/font-awesome.min.css'
-import './index.css';
-
-import Home from './components/home';
-
-export default class DevQuiz extends React.Component {
-  render() {
-    return(
-     <Home />
-    )
-  }
-}
+import "semantic-ui-css/semantic.min.css";
+import DevQuiz from './devquiz';
 
 ReactDOM.render(<DevQuiz />, document.getElementById('root'));
