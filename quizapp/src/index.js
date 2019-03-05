@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import 'font-awesome/css/font-awesome.min.css'
 import './index.css';
 
-import Home from './components/home';
+import Home from './home';
 
 export default class DevQuiz extends React.Component {
   render() {
