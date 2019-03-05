@@ -1,54 +1,59 @@
 import React from 'react';
+import { Image, Card, Header } from "semantic-ui-react";
+
+const topics = [
+  {
+    header: "Linux Commands",
+    image: "https://i.postimg.cc/ZR8CP8KL/logo-terminal.png",
+    description: "How much Linux power do you wield?"
+  },
+  {
+    header: "Git",
+    image: "https://i.postimg.cc/DwNJ7fM1/logo-git.png",
+    description: "Test yourself on the most popular version control system"
+  },
+  {
+    header: "HTML",
+    image: "https://i.postimg.cc/cHyv89ZH/logo-html.png",
+    description: "Do you know the standard markup language for the web?"
+  },
+  {
+    header: "CSS",
+    image: "https://i.postimg.cc/fb03y4Gp/logo-css.png",
+    description: "How's your style?"
+  },
+  {
+    header: "JavaScript",
+    image: "https://i.postimg.cc/8zcf8ft1/logo-javascript.png",
+    description: "Show off the programming language of HTML and the Web"
+  },
+  {
+    header: "Python",
+    image: "https://i.postimg.cc/sx31TMMC/logo-python.png",
+    description: "You think you know some Python?"
+  }
+];
 
 export default Home => {
   return (
     <div>
-      <div className='content'>
-        <h1 className='content-p'>Choose a topic to test your knowledge</h1>
-        <div className="row">
-          <div className="column">
-            <div className="card">
-              <p><i className='fa fa-terminal fa-2x'></i></p>
-              <h2>Linux Commands</h2>
-            </div>
-          </div>
+      <Header as="h3" textAlign="center">Choose a topic to test your knowledge</Header>
 
-          <div className="column">
-            <div className="card">
-              <p><i className='fa fa-git-square fa-2x'></i></p>
-              <h2>Git</h2>
-            </div>
-          </div>
-
-          <div className="column">
-            <div className="card">
-              <p><i className='fa fa-html5 fa-2x'></i></p>
-              <h2>HTML</h2>
-            </div>
-          </div>
-        </div>
-        <div className="row">
-          <div className="column">
-            <div className="card">
-              <p><i className='fa fa-css3 fa-2x'></i></p>
-              <h2>CSS</h2>
-            </div>
-          </div>
-
-          <div className="column">
-            <div className="card">
-              <p><i className='fa fa-code fa-2x'></i></p>
-              <h2>JavaScript</h2>
-            </div>
-          </div>
-          <div className="column">
-            <div className="card">
-              <p><i className='fa fa-code fa-2x'></i></p>
-              <h2>Python</h2>
-            </div>
-          </div>
-        </div>
-      </div>
+      <Card.Group centered>
+        {
+          topics.map((topic, index) => {
+            return (
+              <Card key={index}>
+                <Card.Content>
+                  <Image size="mini" src={topic.image} floated="right" />
+                  <Card.Header>{topic.header}</ Card.Header>
+                  <Card.Meta>{topic.description}</ Card.Meta>
+                </ Card.Content>
+              </ Card>
+            )
+          })
+        }
+      </Card.Group>
     </div>
   )
 }

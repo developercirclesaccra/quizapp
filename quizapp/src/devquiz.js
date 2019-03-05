@@ -1,5 +1,5 @@
 import React from "react";
-import Header from "./header";
+import Navbar from "./navbar";
 import Home from "./home";
 
 export default class DevQuiz extends React.Component {
@@ -14,7 +14,7 @@ export default class DevQuiz extends React.Component {
   render() {
     return (
       <div>
-        <Header />
+        <Navbar />
         <Home />
       </div>
     );
