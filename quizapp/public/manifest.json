@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "DevQuiz",
+  "name": "Test your knowledge of programming topics",
   "icons": [
     {
       "src": "favicon.ico",
