@@ -1,5 +1,5 @@
 import React from "react";
-import { Header, Grid, Segment, Card } from "semantic-ui-react";
+import { Header, Grid, Segment, Card, Progress } from "semantic-ui-react";
 import { Link } from "react-router-dom";
 import { GridSize } from "./utils";
 
@@ -12,7 +12,8 @@ class Question extends React.Component {
     this.state = {
       question: {},
       options: [],
-      quizSession: ""
+      quizSession: "",
+      timeRemaining: 10
     }
   }
 
@@ -21,6 +22,11 @@ class Question extends React.Component {
     // console.log('all questions', questions);
     // console.log("all options", options);
     this.getQuestionOptions(this.props.match.params.slug);
+    this.timer = setInterval(this.countDown, 1000);
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.timer);
   }
 
 
@@ -37,7 +43,18 @@ class Question extends React.Component {
       this.setState({ options: optionSet });
     }
   }
-  // const slug = props.match.params.slug;
+
+  countDown = () => {
+    if (this.state.timeRemaining > 0) {
+      this.setState({ timeRemaining: this.state.timeRemaining - 1 });
+    } else {
+      clearInterval(this.timer);
+      // window.location.reload();
+      // move to next question
+    }
+  }
+  
+  
   render() {
     if (this.state.question !== undefined) {
       return (
@@ -48,27 +65,33 @@ class Question extends React.Component {
           <Grid.Column width={GridSize}>
             <Segment basic>
               <Segment basic clearing>
-              <Header as="h3" floated="left">
-                {this.state.question.topic}
-              </Header>
-              <Header as="h3" floated="right">
-                timer
-              </Header>
+                <Header as="h3" floated="left">
+                  {this.state.question.topic}
+                </Header>
+
+                <Header as="h3" floated="right">
+                  {this.state.timeRemaining}
+                </Header>
               </Segment>
               <Header as="h4" textAlign="center">
                 {this.state.question.question}
               </Header>
               <Segment basic>
-              <Card.Group itemsPerRow={1}>
-                {this.state.options.map(option => {
-                  return (
-                    <Card as={Link} to="/quiz" key={option.id}>
-                      <Card.Content as="p" textAlign="center">
-                        {option.option}
-                      </Card.Content>
-                    </Card>
-                  );
-                })}
+                <Progress
+                  percent={this.state.timeRemaining * 100}
+                  indicating
+                  attached="bottom"
+                />
+                <Card.Group itemsPerRow={1}>
+                  {this.state.options.map(option => {
+                    return (
+                      <Card as={Link} to="/quiz" key={option.id}>
+                        <Card.Content as="p" textAlign="center">
+                          {option.option}
+                        </Card.Content>
+                      </Card>
+                    );
+                  })}
                 </Card.Group>
               </Segment>
             </Segment>
