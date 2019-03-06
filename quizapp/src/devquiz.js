@@ -5,13 +5,14 @@ import Navbar from "./navbar";
 import Home from "./home";
 import Question from "./question";
 
-import topics from "../src/topics";
+import topics from "./sample/topics";
 
 export default class DevQuiz extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      topics: topics
+      topics: topics,
+      quizSession: ""
     };
   }
   render() {
@@ -26,7 +27,7 @@ export default class DevQuiz extends React.Component {
               topics={this.state.topics} />}
           />
           <Route
-            path="/quiz"
+            path="/quiz/:slug"
             component={Question}
           />
         </div>

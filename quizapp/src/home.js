@@ -16,12 +16,12 @@ const Home = props => {
 
             <Card.Group centered>
               {
-                props.topics.map((topic, index) => {
+                props.topics.map(topic => {
                   return (
-                    <Card key={index} as={Link} to="/quiz">
+                    <Card key={topic.id} as={Link} to={`/quiz/${topic.slug}`}>
                       <Card.Content>
                         <Image size="mini" src={topic.image} floated="right" />
-                        <Card.Header>{topic.header}</ Card.Header>
+                        <Card.Header>{topic.topic}</ Card.Header>
                         <Card.Meta>{topic.description}</ Card.Meta>
                       </ Card.Content>
                     </ Card>
