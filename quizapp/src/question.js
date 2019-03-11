@@ -1,6 +1,6 @@
 import React from "react";
 import { Header, Grid, Segment, Card, Progress } from "semantic-ui-react";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 import Content from "./content";
 
 import options from "./sample/options";
@@ -51,6 +51,7 @@ class Question extends React.Component {
       clearInterval(this.timer);
       // window.location.reload();
       // move to next question
+      this.props.history.push(`/result/${this.state.question.topic}`);
     }
   }
   
